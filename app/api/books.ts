@@ -1,5 +1,6 @@
 import { error } from 'console';
 import { API_URL } from '.';
+import { Book } from '@/lib/types';
 
 export async function getBooks() {
   const res = await fetch(`${API_URL}/book`, {
@@ -14,5 +15,5 @@ export async function getBooks() {
     .catch((error) => {
       console.log(error);
     });
-  return res;
+  return res as Book[];
 }

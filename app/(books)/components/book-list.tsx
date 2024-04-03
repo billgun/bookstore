@@ -17,8 +17,9 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { addUserOrder } from '../actions';
 import { useToast } from '@/components/ui/use-toast';
+import { Book } from '@/lib/types';
 
-export const List = ({ initialList }: { initialList: any[] }) => {
+export const List = ({ initialList }: { initialList: Book[] }) => {
   const [list, setList] = useState(initialList);
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref);
@@ -26,7 +27,7 @@ export const List = ({ initialList }: { initialList: any[] }) => {
 
   useEffect(() => {
     async function loadMoreBooks() {
-      setList((prev: any[] | undefined) => [
+      setList((prev: Book[] | undefined) => [
         ...(prev?.length ? prev : []),
         ...initialList,
       ]);

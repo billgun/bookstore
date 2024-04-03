@@ -1,6 +1,7 @@
 'use server';
 
 import { API_URL } from '@/app/api';
+import { Order } from '@/lib/types';
 import { cookies } from 'next/headers';
 import { redirect, useRouter } from 'next/navigation';
 
@@ -25,7 +26,7 @@ export async function getUserOrder() {
     .catch((error) => {
       redirect('/login');
     });
-  return res;
+  return res as Order[];
 }
 
 export async function deleteUserOrder(id: number) {

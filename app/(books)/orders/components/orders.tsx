@@ -11,18 +11,16 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import { Order } from '@/lib/types';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-// interface OrderProps {
-//   orders: any[];
-// }
 export default function Orders({
   orders,
   point,
 }: {
-  orders: any[];
+  orders: Order[];
   point: number;
 }) {
   const [userOrders, setUserOrders] = useState(orders);
